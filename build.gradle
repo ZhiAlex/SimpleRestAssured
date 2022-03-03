@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'com.zhialex.apitests'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+def junitJupiterApi = '5.8.1',
+    junitJupiterEngine = '5.8.1',
+    restAssured = '4.5.1',
+    faker = '1.0.2'
+
+dependencies {
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter-api:${junitJupiterApi}",
+            "io.rest-assured:rest-assured:${restAssured}",
+            "com.github.javafaker:javafaker:${faker}",
+            'com.googlecode.json-simple:json-simple:1.1.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.13.1',
+            'com.google.code.gson:gson:2.9.0'
+
+    )
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterEngine}"
+}
+
+test {
+    useJUnitPlatform()
+}
